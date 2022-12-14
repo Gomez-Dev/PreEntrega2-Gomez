@@ -1,0 +1,17 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	max-width: 1440px;
+}
+
+body {
+	/* background: #1D202B; */
+	background: #2B4B4B;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+	background-color: #6BA6CB;
+}
