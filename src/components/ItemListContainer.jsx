@@ -1,18 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import ItemList from "./Item";
 import ItemCount from "./ItemCount";
+import arrayProductos from "./json/arrayProductos.json";
 
-const ItemListContainer = ({greeting}) => {
+
+const ItemListContainer = () => {
+
+    const [items, setItems] = useState([])
+
+    useEffect(() =>{
+        const promesa = new Promise((resolve) =>{
+            setTimeout(() =>{
+                resolve(arrayProductos);
+            })
+        })
+
+        promesa.then((data) =>{
+            setItems(data);
+        })
+
+    }, []);
+
     return (
         <div className="container py-5">
-            <div className="row">
-                
-                    <div className="col-md-12 text-center">
-                        <div className="alert alert-danger" role="alert">
-                            <p>{greeting}</p>
-                        </div>
-                    </div>
-                    <ItemCount stock={22} />
-            </div> 
+            <ItemList items={items} />
+            <ItemCount stockItems={12} />  
         </div>
     )
 }
