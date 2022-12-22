@@ -13,9 +13,10 @@ const ItemListContainer = () => {
             setTimeout(() =>{
                 resolve(arrayProductos);
             })
-        })
+        });
 
         promesa.then((data) =>{
+            console.log(data);
             setItems(data);
         })
 
@@ -24,7 +25,7 @@ const ItemListContainer = () => {
     return (
         <div className="container py-5">
             <ItemList items={items} />
-            <ItemCount stockItems={12} />  
+            <ItemCount stockItems={9} />      
         </div>
     )
 }
